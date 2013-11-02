@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>First App</title>
+</head>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+    $(document).ready(
+
+        function(){
+            $("#submit").bind("click",function(){
+                getData($("#text").val());
+            });
+
+            function getData(dt){
+                var data=dt;
+                $.ajax({
+                    url:"http://127.0.0.1:80/start",
+                    dataType:"jsonp",
+                    data:'{"data": "TEST"}',
+                    type:'POST',
+                    success:function(data){
+                        alert("f");
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert('error ' + textStatus + " " + errorThrown);
+                    }
+                });
+            }
+        }
+    );
+</script>
+<body>
+    <textarea id="text" rows="20" cols="60"></textarea>
+    <input type="button" value="submit" id="submit" />
+</body>
+</html>
