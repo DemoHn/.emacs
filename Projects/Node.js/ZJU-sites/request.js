@@ -2,6 +2,8 @@ var links = require("./db");
 var req = require("request");
 var event = require("events");
 var cheerio = require("cheerio");
+var qs =require("querystring");
+
 var em = new event.EventEmitter();
 
 
