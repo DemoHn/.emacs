@@ -27,7 +27,9 @@ Text-Width: 70
 
 </x-color>
 
-;;<x-color><param>#99968b</param>设置主模式
+(setq-default indent-tabs-mode nil);<x-color><param>#99968b</param>I hate TABS
+
+</x-color>;;<x-color><param>#99968b</param>设置主模式
 </x-color>(setq default-major-mode 'text-mode)
 
 
@@ -99,9 +101,9 @@ Text-Width: 70
 </x-color>
 
 
-;;<x-color><param>Firebrick</param>复制代码后进行自动格式化
-</x-color>;;<x-color><param>Firebrick</param>出处:http://emacser.com/torture-emacs.htm
-</x-color>(<x-color><param>Purple</param>dolist</x-color> (command '(yank yank-pop))
+;;<x-color><param>#99968b</param>复制代码后进行自动格式化
+</x-color>;;<x-color><param>#99968b</param>出处:http://emacser.com/torture-emacs.htm
+</x-color>(<x-color><param>#8ac6f2</param>dolist</x-color> (command '(yank yank-pop))
   (eval
    `(<x-color><param>#8ac6f2</param>defadvice</x-color> ,command (after indent-region activate)
       (and (not current-prefix-arg)
@@ -153,7 +155,6 @@ Text-Width: 70
 (put 'upcase-region 'disabled nil)
 
 
-
 ;;<x-color><param>#99968b</param>设置主模式
 
 </x-color>(setq-default auto-complete-mode t)
@@ -163,7 +164,11 @@ Text-Width: 70
 
 </x-color>;; <x-color><param>#99968b</param>使用时得进入到/pat/to/auto-complete/dict 下面 ln -s javascript-mode js3-mode
 
-</x-color>
+</x-color>(add-hook 'js3-mode-hook 'auto-complete-mode)
+
+(add-hook 'css-mode-hook 'auto-complete-mode)
+
+(add-hook 'html-mode-hook 'auto-complete-mode)
 
 (add-to-list 'load-path <x-color><param>#95e454</param>"/home/demohn/.emacs.d/elpa/auto-complete-20130724.1750"</x-color>)
 
@@ -177,6 +182,7 @@ Text-Width: 70
 </x-color>(setq-default ac-sources (add-to-list 'ac-sources 'ac-source-dictionary))
 (global-auto-complete-mode t)
 ; <x-color><param>#99968b</param>Start auto-completion after 2 characters of a word
-</x-color>(setq ac-auto-start 2)
+</x-color>(setq ac-auto-start 1)
 ; <x-color><param>#99968b</param>case sensitivity is important when finding matches
 </x-color>(setq ac-ignore-case nil)
+(define-key ac-mode-map (kbd <x-color><param>#95e454</param>"\M-\t"</x-color>) 'auto-complete)
