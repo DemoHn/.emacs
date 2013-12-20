@@ -14,7 +14,7 @@ Text-Width: 70
 
 (tool-bar-mode -1)
 
-(<x-color><param>#8ac6f2</param>when</x-color> window-system (set-frame-size (selected-frame) 80 45))
+(<x-color><param>#8ac6f2</param>when</x-color> window-system (set-frame-size (selected-frame) 80 40))
 
 
 (display-time-mode 1) ;<x-color><param>#99968b</param>显示时间
@@ -186,3 +186,11 @@ Text-Width: 70
 ; <x-color><param>#99968b</param>case sensitivity is important when finding matches
 </x-color>(setq ac-ignore-case nil)
 (define-key ac-mode-map (kbd <x-color><param>#95e454</param>"\M-\t"</x-color>) 'auto-complete)
+
+
+;; <x-color><param>#99968b</param>move emacs backup file into /tmp
+
+</x-color>(setq backup-directory-alist
+      `((<x-color><param>#95e454</param>".*"</x-color> . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((<x-color><param>#95e454</param>".*"</x-color> ,temporary-file-directory t)))
