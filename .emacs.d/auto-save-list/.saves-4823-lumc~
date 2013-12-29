@@ -1,0 +1,6 @@
+/etc/init.d/mongo
+/etc/init.d/#mongo#
+/etc/init.d/mysql
+/etc/init.d/#mysql#
+/etc/init.d/apache2
+/etc/init.d/#apache2#
